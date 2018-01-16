@@ -21,7 +21,6 @@ public class SpecificationUtils {
 				return PredicateUtils.build(root, cb, params);
 			}
 		};
-		
 	}
 
 }

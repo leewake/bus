@@ -6,6 +6,6 @@ package com.pangpang.bus.common;
 public enum QueryOperation {
 	
 	eq,notEq,like,likePrefix,greaterThan,greaterThanOrEqualTo,
-	lessThan,lessThanOrEqualTo,existOrNot,isNull;
+	lessThan,lessThanOrEqualTo,existOrNot,isNull,isNullOrEq,isNotNull,in;
 
 }
