@@ -1,0 +1,26 @@
+server:
+  port: ${PORT:8090}
+  context-path: ${CONTEXTPATH:/bus}
+
+logging:
+  file: ${LOGGING_FILE:bus.log}
+
+spring:
+  profiles:
+    active: ${PROFILE:develop}
+  http: 
+    encoding: 
+      force: true
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: ${MYSQL_URL:jdbc:mysql://127.0.0.1:3306/demo?useUnicode=true&characterEncoding=utf8&useSSL=true}
+    username: ${MYSQL_USER:root}
+    password: ${MYSQL_PASS:root}
+
+  jpa: 
+    show-sql: true
+    database: MYSQL
+    generate-ddl: true
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
