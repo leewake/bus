@@ -19,6 +19,6 @@ public class OrderSearchParam implements Serializable {
 	
 	private Date createTime;
 	
-	private boolean isTest;
+	private boolean test;
 
 }

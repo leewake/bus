@@ -10,10 +10,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.pangpang.bus.common.OrderStatus;
+
 import lombok.Data;
 import lombok.ToString;
 
-/** 
+/** 最开始建表为order,报org.hibernate.tool.schema.spi.SchemaManagementException:
+*  Unable to execute schema management,网上说因为数据库将order表作为系统表导致
 * @author  : lijingwei
 * @version ：2018年1月15日 下午7:41:19 
 */
@@ -48,7 +51,10 @@ public class OrderItemEntity implements Serializable {
 	@Column(name = "visit_time")
 	private Date visitTime;
 	
-	@Column(name = "is_test")
-	private Boolean isTest;
+	@Column(name = "test")
+	private Boolean test;
+	
+	@Column(name = "order_status")
+	private OrderStatus orderStatus;
 	
 }
