@@ -139,14 +139,17 @@ public class PredicateUtils {
 		}
 	}
 
-	private static <T> Predicate in(Root<?> root, CriteriaBuilder cb, String field, List<T> value) {
+	private static <T> Predicate in(Root<?> root, CriteriaBuilder cb, String field, List<T> values) {
 		Predicate predicate = null;
-		if (!CollectionUtils.isEmpty(value)) {
-			Iterator<T> iterator = value.iterator();
+		if (!CollectionUtils.isEmpty(values)) {
 			CriteriaBuilder.In<T> in = cb.in(root.get(field));
+			Iterator<T> iterator = values.iterator();
 			while (iterator.hasNext()) {
 				in.value(iterator.next());
 			}
+			/*for (T value : values) {
+				in.value(value);
+			}*/
 			return in;
 		}
 		return predicate;
@@ -365,6 +368,8 @@ public class PredicateUtils {
 				if (!((String) value).isEmpty()) {
 					predicate = cb.notEqual(root.get(field), value);
 				}
+			} else {
+				predicate = cb.notEqual(root.get(field), value);
 			}
 		}
 		return predicate;
